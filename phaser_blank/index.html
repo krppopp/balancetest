@@ -1,0 +1,71 @@
+<html>
+<head>
+    <script src = "phaser.js"></script>
+    <script src = "Boot.js"></script>
+    <script src = "Preloader.js"></script>
+    <script src = "Main.js"></script>
+    <script src = "Game.js"></script>
+
+       <style>
+        body {
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            overflow: hidden
+        }
+        #frame {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 100%;
+            overflow: hidden
+        }
+        #stage{
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            overflow: hidden
+        }
+        
+    </style>
+    </head>
+    
+<body>
+    
+<div id="frame">
+                <object id="stage" width="1024" height="660"></object>
+    </div>
+
+    <script type = "text/javascript">
+    
+    
+    
+        window.onload = function() {
+
+        var game = new Phaser.Game(1024, 660, Phaser.AUTO, 'stage');
+
+            
+        game.state.add('Boot', BasicGame.Boot);
+        game.state.add('Preloader', BasicGame.Preloader);
+        game.state.add('Main', BasicGame.Main);
+        game.state.add('Game', BasicGame.Game);
+            
+        //	Now start the Boot state.
+        game.state.start('Boot');
+        };
+    
+    
+    
+    
+    </script>
+    
+    
+    
+</body>        
+</html>
